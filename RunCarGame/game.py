@@ -1,4 +1,3 @@
-from turtle import window_width
 import pygame, random, sys, os, time
 from pygame.locals import *
 
@@ -33,7 +32,7 @@ def PlayerHasHitBaddie(PlayerRect, Baddies):
     for b in Baddies:
         if PlayerRect.colliderect(b['rect']):
             return True
-        return False
+    return False
 
 def DrawText(text, font, surface, x, y):
     textobj = font.render(text, 1, TEXTCOLOR)
@@ -65,7 +64,7 @@ PlayerRect = PlayerImage.get_rect()
 BaddieImage = pygame.image.load('RunCarGame\image\car2.png')
 Sample = [car3, car4, BaddieImage]
 WallLeft = pygame.image.load('RunCarGame\image\left.png')
-WallRight = pygame.image.load('RunCarGame\image\right.png')
+WallRight = pygame.image.load('RunCarGame\image\direita.png')
 
 # "Inicia" a tela
 DrawText('Pressione qualquer tecla para iniciar o jogo', font, windowSurface, (WINDOWWIDTH/3) - 30, (WINDOWHEIGHT/3))
