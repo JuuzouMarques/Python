@@ -21,7 +21,7 @@ def Terminate():
 def WaitForPlayerToPressKey():
     while True:
         for event in pygame.event.get():
-            if event.type == QUIT():
+            if event.type == QUIT:
                 Terminate()
             if event.type == KEYDOWN:
                 if event.type == K_ESCAPE:
@@ -41,7 +41,7 @@ def DrawText(text, font, surface, x, y):
     surface.blit(textobj, textrect)
 
 
-# Configura Pygame, a janela e o cursor do mouse.
+# Configura Pygame, a janela e o cursor do mouse
 pygame.init()
 mainClock = pygame.time.Clock()
 windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
@@ -52,17 +52,30 @@ pygame.mouse.set_visible(False)
 font = pygame.font.SysFont(None, 30)
 
 # Sons
-GameOverSound = pygame.mixer.Sound('')
-pygame.mixer.music.load('')
-laugh = pygame.mixer.Sound('')
+GameOverSound = pygame.mixer.Sound('RunCarGame\music\crash.wav')
+pygame.mixer.music.load('RunCarGame\music\car.wav')
+laugh = pygame.mixer.Sound('RunCarGame\music\laugh.wav')
 
 # Imagens
-PlayerImage = pygame.image.load('')
-car3 = pygame.image.load('')
-car4 = pygame.image.load('')
+PlayerImage = pygame.image.load('RunCarGame\image\car1.png')
+car3 = pygame.image.load('RunCarGame\image\car3.jpg')
+car4 = pygame.image.load('RunCarGame\image\car4.png')
 PlayerRect = PlayerImage.get_rect()
-BaddieImage = pygame.image.load('')
+BaddieImage = pygame.image.load('RunCarGame\image\car2.png')
 Sample = [car3, car4, BaddieImage]
-WallLeft = pygame.image.load('')
-WallRight = pygame.image.load('')
+WallLeft = pygame.image.load('RunCarGame\image\left.png')
+#WallRight = pygame.image.load('RunCarGame\image\right.png')
 
+# "Inicia" a tela
+DrawText('Pressione qualquer tecla para iniciar o jogo', font, windowSurface, (WINDOWWIDTH/3) - 30, (WINDOWHEIGHT/3))
+DrawText('Aproveite!', font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3) + 30)
+pygame.display.update()
+WaitForPlayerToPressKey()
+zero = 0
+if not os.path.exists('RunCarGame\data\save.dat'):
+    f = open('RunCarGame\data\save.dat', 'w')
+    f.write(str(zero))
+    f.close()
+v = open('RunCarGame\data\save.dat', 'r')
+TopScore = int(v.readline())
+v.close()
