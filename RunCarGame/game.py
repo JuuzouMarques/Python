@@ -179,7 +179,7 @@ while (count>0):
         # Desenha a pontuação e o Record.
         DrawText('Pontuação: %s' % (score), font, windowSurface, 128, 0)
         DrawText('Top Score: %s' % (TopScore), font, windowSurface,128, 20)
-        DrawText('Rest Life: %s' % (count), font, windowSurface,128, 40)
+        DrawText('Vidas Restantes: %s' % (count), font, windowSurface,128, 40)
 
         windowSurface.blit(PlayerImage, PlayerRect)
 
