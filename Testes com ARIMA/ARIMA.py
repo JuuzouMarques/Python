@@ -1,8 +1,8 @@
 # %%
 import pandas as pd
 
-#arquivo = 'Testes com ARIMA\dados_new3.csv'
-series = pd.read_csv('Testes com ARIMA\dados_new3.csv', sep=',')
+arquivo = 'dados_new3.csv'
+series = pd.read_csv(arquivo, sep=',')
 
 from pandas.plotting import autocorrelation_plot
 from matplotlib import pyplot
