@@ -1,3 +1,5 @@
+from ast import Slice
+from cProfile import label
 from fileinput import close
 from tkinter import *
 from random import randint
@@ -49,8 +51,9 @@ def gerarSenha2():
     if bEspecial.get() == True:
         sSenha += sEsp
 
-    for i in range(8):
-        pos = randint(0, len(sSenha))
+    Tam = int(nTamSenha.get())
+    for i in range(Tam):
+        pos = randint(0, (len(sSenha) - 1))
         sFinal += sSenha[pos]
     
     senha['text'] = sFinal
@@ -63,6 +66,7 @@ bMaiuscula = BooleanVar()
 bMinuscula = BooleanVar()
 bNumero = BooleanVar()
 bEspecial = BooleanVar()
+nTamSenha = DoubleVar()
 
 janela.title('Gerador de Senhas')
 titulo = Label(janela, text='-'*30 + '\nGERADOR DE SENHAS\n' + '-'*30)
@@ -80,4 +84,8 @@ button = Button(janela, text='Gerar Senha', command=gerarSenha2)
 button.grid(row=5, column=0)
 senha = Label(janela, text='')
 senha.grid(row=6, column=0)
+
+slider = Scale(janela, from_=1, to=30, orient=HORIZONTAL, variable=nTamSenha)
+slider.grid(row=7, column=0)
+
 janela.mainloop()
