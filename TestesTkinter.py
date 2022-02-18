@@ -17,14 +17,10 @@ def gerarSenha():
     sNum = '0123456789'
     sEsp = '!@#$%&'
     sFinal = ''
-    if bMaiuscula.get() == True:
-        sSenha += sMai
-    if bMinuscula.get() == True:
-        sSenha += sMin
-    if bNumero.get() == True:
-        sSenha += sNum
-    if bEspecial.get() == True:
-        sSenha += sEsp
+    if bMaiuscula.get() == True: sSenha += sMai
+    if bMinuscula.get() == True: sSenha += sMin
+    if bNumero.get() == True: sSenha += sNum
+    if bEspecial.get() == True: sSenha += sEsp
 
     Tam = int(nTamSenha.get())
     for i in range(Tam):
