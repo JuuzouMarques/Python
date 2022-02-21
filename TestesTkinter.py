@@ -45,7 +45,6 @@ titulo = Label(janela, text='-'*30 + '\nGERADOR DE SENHAS\n' + '-'*30)
 titulo.grid(row=0, column=0, padx=20)
 
 labelTamanhoSenha = Label(janela, text='Tamanho da Senha:')
-labelTamanhoSenha.grid()
 labelTamanhoSenha.grid(row=1, column=0)
 slider = Scale(janela, from_=1, to=30, orient=HORIZONTAL, variable=nTamSenha)
 slider.grid(row=2, column=0)
