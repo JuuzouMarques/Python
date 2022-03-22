@@ -31,7 +31,6 @@ def validateCNPJ(cnpj):
     first12 = cnpj[:12] # Takes the first twelve digits of the CNPJ
     firstCheckDigit = secCheckDigit = 0 # Check Digits
  
-  for fat, num in zip(multiplier, first13):
     # Calculate First Digit Check
     multiplier = (5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2)
     summation = 0
