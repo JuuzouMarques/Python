@@ -1,9 +1,11 @@
 from tkinter import *
 from time import sleep
 import pyautogui as auto
+from threading import Thread
 
 wppColorW = '#ece5dd'
 wppColorG = '#25d366'
+red = '#ff6961'
 stop = False
 
 def verificaCampoVazio():
@@ -13,7 +15,8 @@ def verificaCampoVazio():
         warning['text'] = 'Campo Vazio!'
     else:
         stop = False
-        enviarMensagens()
+        message['state'] = 'readonly'
+        Thread(target=enviarMensagens).start()
 
 def enviarMensagens():
     global stop
@@ -26,10 +29,12 @@ def enviarMensagens():
 
 def cancelarEnvio():
     global stop
+    message['state'] = 'normal'
     if stop == False: stop = True
 
 janela = Tk()
 janela.title('Whatsapp Bot')
+janela.iconphoto(False, PhotoImage(file='whatsapp_14158.ico'))
 janela.configure(background=wppColorW)
 janela.resizable(width=FALSE, height=FALSE)
 
@@ -41,9 +46,9 @@ warning = Label(janela, text='', justify=CENTER, font=('Arial 10 bold'), bg=wppC
 warning.grid(row=2, column=0, padx=10, pady=10)
 
 
-bttEnviar = Button(text='Enviar', anchor=CENTER, font=('Arial 10 bold'), command=verificaCampoVazio)
+bttEnviar = Button(text='Enviar', anchor=CENTER, font=('Arial 10 bold'), command=verificaCampoVazio, bg=wppColorG)
 bttEnviar.grid(row=3, column=0, padx=10)
-bttCancelar = Button(text='Cancelar', anchor=CENTER, font=('Arial 10 bold'), command=cancelarEnvio)
+bttCancelar = Button(text='Cancelar', anchor=CENTER, font=('Arial 10 bold'), command=cancelarEnvio, bg=red)
 bttCancelar.grid(row=4, column=0, padx=10, pady=10)
 
 janela.mainloop()
