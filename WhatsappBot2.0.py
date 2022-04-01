@@ -6,6 +6,7 @@ from threading import Thread
 wppColorW = '#ece5dd'
 wppColorG = '#25d366'
 red = '#ff6961'
+blue = '#123564'
 stop = False
 
 def verificaCampoVazio():
@@ -22,6 +23,10 @@ def enviarMensagens():
     global stop
     mensagem = message.get()
     sleep(5)
+    for i in range(5, 0, -1):
+        warning['text'] = i
+        sleep(1)
+    warning['text'] = ''
     while stop == False:
         auto.write(mensagem)
         auto.press('Enter')
@@ -31,6 +36,12 @@ def cancelarEnvio():
     global stop
     message['state'] = 'normal'
     if stop == False: stop = True
+
+def ajuda():
+    janela.state(newstate='zoomed')
+    janelaAjuda = Tk()
+
+    janelaAjuda.mainloop()
 
 janela = Tk()
 janela.title('Whatsapp Bot')
@@ -47,8 +58,10 @@ warning.grid(row=2, column=0, padx=10, pady=10)
 
 
 bttEnviar = Button(text='Enviar', anchor=CENTER, font=('Arial 10 bold'), command=verificaCampoVazio, bg=wppColorG)
-bttEnviar.grid(row=3, column=0, padx=10)
+bttEnviar.grid(row=3, column=0, padx=10, pady=10)
 bttCancelar = Button(text='Cancelar', anchor=CENTER, font=('Arial 10 bold'), command=cancelarEnvio, bg=red)
-bttCancelar.grid(row=4, column=0, padx=10, pady=10)
+bttCancelar.grid(row=4, column=0, padx=10,)
+bttAjuda = Button(text='Ajuda', anchor=CENTER, font=('Arial 10 bold'), command=ajuda, bg=blue)
+bttAjuda.grid(row=5, column=0, padx=10, pady=10)
 
 janela.mainloop()
