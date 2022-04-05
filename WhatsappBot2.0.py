@@ -50,9 +50,9 @@ message.grid(row=1, column=0, padx=10)
 warning = Label(janela, text='', justify=CENTER, font=('Arial 10 bold'), bg=wppColorW)
 warning.grid(row=2, column=0, padx=10, pady=10)
 
-bttEnviar = Button(text='Enviar', anchor=CENTER, font=('Arial 10 bold'), command=verificaCampoVazio, bg=wppColorG)
+bttEnviar = Button(text='Enviar', anchor=CENTER, font=('Arial 10 bold'), command=verificaCampoVazio, bg=wppColorG, width=8)
 bttEnviar.grid(row=3, column=0, padx=10)
-bttCancelar = Button(text='Cancelar', anchor=CENTER, font=('Arial 10 bold'), command=cancelarEnvio, bg=red)
+bttCancelar = Button(text='Cancelar', anchor=CENTER, font=('Arial 10 bold'), command=cancelarEnvio, bg=red, width=8)
 bttCancelar.grid(row=4, column=0, padx=10, pady=10)
 
 janela.mainloop()
