@@ -42,6 +42,7 @@ janela.title('Whatsapp Bot')
 janela.iconphoto(False, PhotoImage(file='whatsapp_14158.ico'))
 janela.configure(background=wppColorW)
 janela.resizable(width=FALSE, height=FALSE)
+janela.attributes('-topmost', True)
 
 label = Label(janela, text='Mensagem a ser enviada:', justify=CENTER, font=('Arial 10 bold'), bg=wppColorW)
 label.grid(row=0, column=0, padx=10, pady=10)
